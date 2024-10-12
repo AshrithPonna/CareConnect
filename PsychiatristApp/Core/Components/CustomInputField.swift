@@ -11,6 +11,7 @@ struct CustomInputField: View {
     let imageName : String
     let placeHolderText: String
     var isSecureField: Bool? = false
+
     @Binding var text: String
     
     var body: some View {

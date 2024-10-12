@@ -11,7 +11,9 @@ struct RegistrationView: View {
     @State private var email = ""
     @State private var username = ""
     @State private var fullname = ""
+    @State private var role = ""
     @State private var password = ""
+    var roles = ["Patient", "Psychiatrist"]
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: AuthViewModel
     
@@ -35,6 +37,22 @@ struct RegistrationView: View {
                     CustomInputField(imageName: "person", placeHolderText: "Fullname", text: $fullname)
                     
                     CustomInputField(imageName: "lock", placeHolderText: "Password", isSecureField: true, text: $password)
+                    
+                    HStack{
+                        Image(systemName: "person")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20, height: 20)
+                            .foregroundColor(Color(.darkGray))
+                        
+                        Text("Role")
+                        
+                        Picker("roles", selection: $role) {
+                            ForEach(roles, id: \.self) { role in
+                                Text(role)
+                            }
+                        }
+                    }
                 }
                 .padding(32)
                 

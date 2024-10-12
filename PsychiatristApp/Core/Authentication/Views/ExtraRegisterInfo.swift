@@ -9,7 +9,7 @@ struct ExtraRegisterInfo: View {
     @State private var birthday = Date()
     @State private var gender = ""
     @State private var level = ""
-    var genders = ["Select Gender", "Male", "Female", "Other"]
+    var genders = ["Gender", "Male", "Female", "Other"]
     @EnvironmentObject var viewModel: AuthViewModel
     
     @State private var isProfilePhotoSelecterActive = false
@@ -24,45 +24,39 @@ struct ExtraRegisterInfo: View {
                 
                 AuthenticationHeaderView(title1: "Setup Account", title2: "Additional Information")
                 
-                Text("Select one of the following levels that fit you the best:")
+                Text("Please select your psychiarist")
                 
                 HStack{
                     Button {
-                        level = "Beginner"
+                        level = "sigmundfreud"
                     } label: {
                         VStack{
                             
-                            Text("Beginner")
+                            Text("Dr. Sigmund Freud")
                                 .fontWeight(.bold)
                                 .font(.headline)
-                            
-                            
-                            Text("Just starting out, learning basic techniques and struggling with consistency.")
-                                .font(.caption)
+                        
                         }
-                        .frame(width:175, height: 100)
+                        .frame(width:175, height: 50)
                         .foregroundColor(.white)
-                        .background(Color(level == "Beginner" ?.systemGray2: .systemBlue))
+                        .background(Color(level == "sigmundfreud" ?.systemGray2: .systemBlue))
                         .clipShape(Rectangle())
                         .cornerRadius(8)
                     }
                     
                     Button {
-                        level = "Intermediate"
+                        level = "carljung"
                     } label: {
                         VStack{
                             
-                            Text("Intermediate")
+                            Text("Dr. Carl Jung")
                                 .fontWeight(.bold)
                                 .font(.headline)
                             
-                            
-                            Text("Comfortable with basic strokes and can maintain rallies with some consistency.")
-                                .font(.caption)
                         }
-                        .frame(width:175, height: 100)
+                        .frame(width:175, height: 50)
                         .foregroundColor(.white)
-                        .background(Color(level == "Intermediate" ?.systemGray2: .systemBlue))
+                        .background(Color(level == "carljung" ?.systemGray2: .systemBlue))
                         .clipShape(Rectangle())
                         .cornerRadius(8)
                     }
@@ -70,41 +64,37 @@ struct ExtraRegisterInfo: View {
                 }
                 HStack{
                     Button {
-                        level = "Advanced"
+                        level = "emilkraepelin"
                     } label: {
                         VStack{
                             
-                            Text("Advanced")
+                            Text("Dr. Emil Kraepelin")
                                 .fontWeight(.bold)
                                 .font(.headline)
                             
-                            
-                            Text("Consistently strong play, regularly competes, and uses strategic game plans.")
-                                .font(.caption)
+                    
                         }
-                        .frame(width:175, height: 100)
+                        .frame(width:175, height: 50)
                         .foregroundColor(.white)
-                        .background(Color(level == "Advanced" ?.systemGray2: .systemBlue))
+                        .background(Color(level == "emilkraepelin" ?.systemGray2: .systemBlue))
                         .clipShape(Rectangle())
                         .cornerRadius(8)
                     }
                     
                     Button {
-                        level = "Expert"
+                        level = "aaronbeck"
                     } label: {
                         VStack{
                             
-                            Text("Expert")
+                            Text("Dr. Aaron Beck")
                                 .fontWeight(.bold)
                                 .font(.headline)
                             
-                            
-                            Text("Elite-level player with extensive competitive experience and advanced tactical skills.")
-                                .font(.caption)
+                        
                         }
-                        .frame(width:175, height: 100)
+                        .frame(width:175, height: 50)
                         .foregroundColor(.white)
-                        .background(Color(level == "Expert" ?.systemGray2: .systemBlue))
+                        .background(Color(level == "aaronbeck" ?.systemGray2: .systemBlue))
                         .clipShape(Rectangle())
                         .cornerRadius(8)
                     }
@@ -112,14 +102,48 @@ struct ExtraRegisterInfo: View {
                     
                     
                 }
+                .padding()
                 
-                DatePicker("Birthday", selection: $birthday, in: ...Date(), displayedComponents: .date)
+                Divider()
+                    .background(Color(.darkGray))
+                    .padding(.horizontal, 32)
                 
-                Picker("genders", selection: $gender) {
-                    ForEach(genders, id: \.self) { gender in
-                        Text(gender)
+                HStack{
+                    
+                    Image(systemName: "birthday.cake")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color(.darkGray))
+                    
+                    DatePicker("Birthday", selection: $birthday, in: ...Date(), displayedComponents: .date)
+                        .padding()
+                }
+                .padding(.horizontal, 32)
+                
+                
+                Divider()
+                    .background(Color(.darkGray))
+                    .padding(.horizontal, 32)
+                    .padding(.top, 12)
+                
+                HStack{
+                    Image(systemName: "person")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 20, height: 20)
+                        .foregroundColor(Color(.darkGray))
+                    
+                    Text("Gender")
+                    
+                    Picker("genders", selection: $gender) {
+                        ForEach(genders, id: \.self) { gender in
+                            Text(gender)
+                        }
                     }
                 }
+                .padding()
+
                 
                 Button {
                     viewModel.uploadAdditionalData(birthday, level: level, gender: gender)
