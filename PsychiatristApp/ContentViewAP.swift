@@ -18,8 +18,19 @@ struct ContentView: View {
     @ObservedObject var quizManager = QuizManager()
     @State private var currentUserID: String = Auth.auth().currentUser?.uid ?? ""
     
+   //Setting up the visual format [outer structure] of soon-to-be presented questions 
+    
     var body: some View {
         NavigationView {
             List {
-                ForEach(quizManager.questions) { question
+                ForEach(quizManager.questions, id: \.textPrompt) { question in
+                    NavigationLink(destination: QuestionView(question: question, quizManager: quizManager, userId: currentUserID)) {
+                        Text(question.textPrompt)
+                    }
+                }
+            }
+            .navigationTitle("Quiz")
+        }
+    }
+}
 
