@@ -50,13 +50,9 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else {return}
-//            self.userSession = user
             
             self.tempUserSession = user
             
-           
-            
-            //add new data
             let data = ["email": email, "username": username.lowercased(), "fullname": fullname, "uid": user.uid]
             
             Firestore.firestore().collection("users")
@@ -99,6 +95,20 @@ class AuthViewModel: ObservableObject {
                 "age": age,
                 "level": level,
                 "gender": gender
+            ]) { error in
+                self.fetchUser()
+            }
+    }
+    
+    func uploadPsychiatristAdditionalData(_ hospital: String, medicalLicenseNumber: String) {
+        guard let uid = tempUserSession?.uid else { return }
+        
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .updateData([
+                "hospital": hospital,
+                "medicalLicenseNumber": medicalLicenseNumber,
             ]) { error in
                 self.fetchUser()
             }
