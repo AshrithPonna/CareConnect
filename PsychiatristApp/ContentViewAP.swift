@@ -22,4 +22,14 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(quizManager.questions) { question
+                }
+            }
+        }
+    }
+}
 
+#Preview {
+    NavigationView{
+        ContentViewAP()
+    }
+}

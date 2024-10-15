@@ -118,7 +118,7 @@ struct PsychiatristExtraRegister: View {
                 
                 Button {
                     viewModel.uploadPsychiatristAdditionalData(hospital, medicalLicenseNumber: medicalLicenseNumber)
-//                    isProfilePhotoSelecterActive = true
+                    isProfilePhotoSelecterActive = true
                 } label: {
                     Text("Continue")
                         .font(.headline)
@@ -135,9 +135,9 @@ struct PsychiatristExtraRegister: View {
                 Spacer()
             }
             .ignoresSafeArea()
-//            .navigationDestination(isPresented: $isProfilePhotoSelecterActive) {
-//                ProfilePhotoSelecterView()
-//            }
+            .navigationDestination(isPresented: $isProfilePhotoSelecterActive) {
+                ProfilePhotoSelecterView()
+            }
         }
     }
 }

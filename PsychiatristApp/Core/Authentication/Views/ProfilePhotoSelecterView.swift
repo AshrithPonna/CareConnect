@@ -14,7 +14,7 @@ struct ProfilePhotoSelecterView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         VStack{
-            AuthenticationHeaderView(title1: "Setup account", title2: "Add a profile photo")
+            AuthenticationHeaderView(title1: "Setup account", title2: "Plese select a photo of yourself")
             
             Button {
                 showImagePicker.toggle()

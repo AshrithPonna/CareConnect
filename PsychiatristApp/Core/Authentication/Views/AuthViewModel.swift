@@ -64,7 +64,7 @@ class AuthViewModel: ObservableObject {
     }
     
     func signOut(){
-        userSession = nil
+        self.userSession = nil
         try? Auth.auth().signOut()
     }
     
@@ -103,6 +103,7 @@ class AuthViewModel: ObservableObject {
     func uploadPsychiatristAdditionalData(_ hospital: String, medicalLicenseNumber: String) {
         guard let uid = tempUserSession?.uid else { return }
         
+        print("DEBUG: Trying to add psychiatrist data")
         
         Firestore.firestore().collection("users")
             .document(uid)
@@ -120,6 +121,8 @@ class AuthViewModel: ObservableObject {
         
         service.fetchUser(withUid: uid) { user in
             self.currentUser = user
+           
         }
+//        self.currentUser =  User(email: "t", fullname: "t", profileImageUrl: "t", username: "doctor1")
     }
 }

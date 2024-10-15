@@ -45,3 +45,8 @@ struct AdminView: View {
     }
 }
 
+#Preview {
+    NavigationView{
+        AdminView()
+    }
+}

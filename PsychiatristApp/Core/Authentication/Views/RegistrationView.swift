@@ -19,6 +19,8 @@ struct RegistrationView: View {
     
     @State private var isProfilePhotoSelectorActive = false
     
+    @State private var isProfilePhotoSelectorActive2 = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -59,6 +61,10 @@ struct RegistrationView: View {
                 Button {
                     viewModel.register(withEmail: email, password: password, fullname: fullname, username: username)
                     isProfilePhotoSelectorActive = true
+                    if(role == "Psychiatrist"){
+                        isProfilePhotoSelectorActive = false
+                        isProfilePhotoSelectorActive2 = true
+                    }
                 } label: {
                     Text("Sign up")
                         .font(.headline)
@@ -91,6 +97,9 @@ struct RegistrationView: View {
             // Navigation destination
             .navigationDestination(isPresented: $isProfilePhotoSelectorActive) {
                 ExtraRegisterInfo()
+            }
+            .navigationDestination(isPresented: $isProfilePhotoSelectorActive2){
+                PsychiatristExtraRegister()
             }
         }
     }

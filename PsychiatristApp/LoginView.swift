@@ -50,3 +50,6 @@ struct LoginView: View {
             } else {
                 print("Error logging in: \(error?.localizedDescription ?? "")")
             }
+        }
+    }
+}
