@@ -17,8 +17,16 @@ struct ContentView: View {
             if viewModel.userSession == nil {
                 LoginView()
             } else{
-                ZStack(alignment: .topLeading){
-                    MainTabView()
+                if let user = viewModel.currentUser {
+                                    MainTabView(user: user)
+                } else {
+                    // Handle case where user is not available (e.g., loading state)
+                    Button {
+                        viewModel.signOut()
+                    } label: {
+                        Text("Logout")
+                        
+                    }
                 }
 
             }

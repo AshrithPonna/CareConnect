@@ -16,6 +16,9 @@ struct User: Identifiable, Decodable{
     let fullname: String
     let profileImageUrl: String
     let username: String
+    let role: String
+    let age: Int
+    let gender: String
     
     var isCurrentUser: Bool {return Auth.auth().currentUser?.uid == id}
 }

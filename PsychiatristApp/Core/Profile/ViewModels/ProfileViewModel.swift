@@ -14,7 +14,7 @@ class ProfileViewModel: ObservableObject {
         self.user = user
     }
     var actionButtontitle: String{
-        return user.isCurrentUser ? "Edit Profile" : "Message"
+        return user.isCurrentUser ? "Settings" : "Message"
     }
     
 }

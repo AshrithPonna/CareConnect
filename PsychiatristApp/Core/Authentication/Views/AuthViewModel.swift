@@ -94,7 +94,8 @@ class AuthViewModel: ObservableObject {
                 "birthday": birthday,
                 "age": age,
                 "level": level,
-                "gender": gender
+                "gender": gender,
+                "role": "Patient"
             ]) { error in
                 self.fetchUser()
             }
@@ -110,6 +111,9 @@ class AuthViewModel: ObservableObject {
             .updateData([
                 "hospital": hospital,
                 "medicalLicenseNumber": medicalLicenseNumber,
+                "gender": "0",
+                "age": 0,
+                "role": "Psychiatrist"
             ]) { error in
                 self.fetchUser()
             }

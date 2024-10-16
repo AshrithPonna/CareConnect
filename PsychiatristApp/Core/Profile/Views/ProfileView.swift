@@ -30,11 +30,7 @@ struct ProfileView: View {
     }
 }
 
-#Preview {
-    NavigationView{
-        ProfileView(user: User(id: NSUUID().uuidString, email: "anshkool@icloud.com", fullname: "Ansh Gupta", profileImageUrl: "", username: "anshtheplayer"))
-    }
-}
+
 
 extension ProfileView{
     var headerView: some View {
@@ -73,14 +69,8 @@ extension ProfileView{
         HStack(spacing: 12){
             Spacer()
             
-            Image(systemName: "bell.badge")
-                .font(.title3)
-                .padding(6)
-                .overlay(Circle().stroke(Color.gray, lineWidth:0.75))
-            
-            
             NavigationLink(destination: {
-                if(viewModel.actionButtontitle == "Edit Profile"){
+                if(viewModel.actionButtontitle == "Settings"){
                     SettingsView()
                 }else{
 //                    MessagesView()
@@ -104,27 +94,48 @@ extension ProfileView{
                 Text(viewModel.user.fullname)
                     .font(.title2).bold()
                 
-                Image(systemName: "checkmark.seal.fill")
-                    .foregroundColor(Color(.systemBlue))
             }
             
-            Text("@\(viewModel.user.username)")
+            Text("\(viewModel.user.role)")
                 .font(.subheadline)
                 .foregroundStyle(.gray)
-            
-            Text("Best Tennis Player")
-                .font(.subheadline)
-                .padding(.vertical)
-            
-            HStack{
-                Image(systemName: "tennisball")
-                
-                Text("www.usta.com")
+            if(viewModel.user.role == "Patient"){
+                HStack{
+                    Spacer()
+                    VStack{
+                        Text("Age")
+                            .font(.subheadline)
+                        Text("\(viewModel.user.age)")
+                            .font(.largeTitle)
+
+                    }
+                    
+                    Spacer()
+                    
+                    VStack{
+                        Text("Gender")
+                            .font(.subheadline)
+
+                        Text("\(viewModel.user.gender)")
+                            .font(.largeTitle)
+  
+                        
+
+                    }
+                    
+                    Spacer()
+                }
+                .padding(.top, 30)
             }
-            .font(.footnote)
-            .foregroundColor(.gray)
             
         }
         .padding(.horizontal)
     }
+}
+
+#Preview {
+    NavigationView{
+        ProfileView(user: User(id: NSUUID().uuidString, email: "anshkool@icloud.com", fullname: "Ansh Gupta", profileImageUrl: "", username: "anshtheplayer", role: "Patient", age: 16, gender: "Male"))
+    }
+    .environmentObject(AuthViewModel())
 }
