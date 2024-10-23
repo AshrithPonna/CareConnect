@@ -16,6 +16,7 @@ class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthenticateUser = false
     @Published var currentUser: User?
+    @Published var responsesArray: [[String]] = []
     private var tempUserSession: FirebaseAuth.User?
     
     private let service = UserService()
@@ -24,6 +25,22 @@ class AuthViewModel: ObservableObject {
         self.userSession = Auth.auth().currentUser
         self.fetchUser()
         
+    }
+    
+    func appendResponses(array: [String]){
+        responsesArray.append(array)
+    }
+    
+    func uploadResponses(){
+        guard let uid = tempUserSession?.uid else {return}
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .updateData([
+                "responses": self.responsesArray
+            ])
+        
+        self.responsesArray = []
     }
     
     func login(withEmail email: String, password: String){
