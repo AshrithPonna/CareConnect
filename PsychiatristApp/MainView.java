@@ -9,14 +9,14 @@
 
 import SwiftUI
 
-//Setting up main view of app for users/admins to see.
+//Setting up user/patient view.
 
 struct MainView: View {
     @State private var isUserAuthenticated = false
     @State private var isAdmin = false
     @StateObject private var quizManager = QuizManager()
-    
-    //Changing views based on admin/user credentiality.
+   
+    //Checking for psychiatric credentials for potential view change.
     
     var body: some View {
         if isUserAuthenticated {
@@ -24,8 +24,20 @@ struct MainView: View {
                 AdminView()
                     .environmentObject(quizManager)
             } else {
-                ContentView()
-                    .environmentObject(quizManager)
+                TabView {
+                    ContentView()
+                        .environmentObject(quizManager)
+                        .tabItem {
+                            Label("Quiz", systemImage: "list.bullet")
+                        }
+                    
+                    //Setting up view for chatbot, in perspective of users.
+                    
+                    ChatbotView()
+                        .tabItem {
+                            Label("Chatbot", systemImage: "message")
+                        }
+                }
             }
         } else {
             LoginView()
@@ -33,4 +45,5 @@ struct MainView: View {
         }
     }
 }
+
 
