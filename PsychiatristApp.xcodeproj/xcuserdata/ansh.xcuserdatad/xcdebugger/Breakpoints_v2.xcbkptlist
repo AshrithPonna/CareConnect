@@ -15,8 +15,8 @@
             filePath = "PsychiatristApp/Core/Authentication/Views/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "login(withEmail:password:)"
             landmarkType = "7">
             <Actions>
@@ -39,8 +39,8 @@
             filePath = "PsychiatristApp/Core/Authentication/Views/AuthViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "login(withEmail:password:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -104,7 +104,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "153"
-            endingLineNumber = "153">
+            endingLineNumber = "153"
+            landmarkName = "fetchUser()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

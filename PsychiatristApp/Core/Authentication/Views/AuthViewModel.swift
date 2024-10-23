@@ -31,16 +31,25 @@ class AuthViewModel: ObservableObject {
         responsesArray.append(array)
     }
     
-    func uploadResponses(){
-        guard let uid = tempUserSession?.uid else {return}
-        
+    func uploadResponses() {
+        guard let uid = userSession?.uid else { return }
+
+        // Flatten the 2D array into a 1D array
+        let flatResponses = responsesArray.flatMap { $0 }
+
         Firestore.firestore().collection("users")
             .document(uid)
             .updateData([
-                "responses": self.responsesArray
-            ])
-        
-        self.responsesArray = []
+                "responses": flatResponses
+            ]) { error in
+                if let error = error {
+                    print("DEBUG: Failed to upload responses with error: \(error.localizedDescription)")
+                } else {
+                    print("DEBUG: Responses uploaded successfully.")
+                }
+            }
+
+        self.responsesArray = []  // Clear responses after upload
     }
     
     func login(withEmail email: String, password: String){
