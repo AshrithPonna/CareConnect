@@ -56,45 +56,45 @@ struct MainTabView: View {
                 
             }else{
                 TabView(selection: $selectedIndex) {
-                    FeedView()
+//                    FeedView()
+//                        .onTapGesture {
+//                            self.selectedIndex = 0
+//                        }
+//                        .tabItem {
+//                            Image(systemName: "house")
+//                        }.tag(0)
+                    
+                    ExploreView()
                         .onTapGesture {
                             self.selectedIndex = 0
                         }
                         .tabItem {
-                            Image(systemName: "house")
+                            Image(systemName: "magnifyingglass")
                         }.tag(0)
                     
-                    ExploreView()
+                    NotificationView()
                         .onTapGesture {
                             self.selectedIndex = 1
                         }
                         .tabItem {
-                            Image(systemName: "magnifyingglass")
+                            Image(systemName: "bell")
                         }.tag(1)
                     
-                    NotificationView()
+                    MessagesView()
                         .onTapGesture {
                             self.selectedIndex = 2
                         }
                         .tabItem {
-                            Image(systemName: "bell")
+                            Image(systemName: "envelope")
                         }.tag(2)
                     
-                    MessagesView()
+                    ProfileView(user:user)
                         .onTapGesture {
                             self.selectedIndex = 3
                         }
                         .tabItem {
-                            Image(systemName: "envelope")
-                        }.tag(3)
-                    
-                    ProfileView(user:user)
-                        .onTapGesture {
-                            self.selectedIndex = 4
-                        }
-                        .tabItem {
                             Image(systemName: "person")
-                        }.tag(4)
+                        }.tag(3)
                 }
             }
             

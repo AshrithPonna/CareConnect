@@ -70,8 +70,8 @@
 
 /* Begin PBXFileReference section */
 		6A0004DA2CC898DA009B67B2 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionView.swift; path = PsychiatristApp/QuestionView.swift; sourceTree = SOURCE_ROOT; };
-		6A0004DB2CC898DA009B67B2 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Models.swift; path = PsychiatristApp/Models.swift; sourceTree = SOURCE_ROOT; };
-		6A0004DC2CC898DA009B67B2 /* QuizManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizManager.swift; path = PsychiatristApp/QuizManager.swift; sourceTree = SOURCE_ROOT; };
+		6A0004DB2CC898DA009B67B2 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Models.swift; path = PsychiatristApp/Core/Feed/ViewModel/Models.swift; sourceTree = SOURCE_ROOT; };
+		6A0004DC2CC898DA009B67B2 /* QuizManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuizManager.swift; path = PsychiatristApp/Core/Feed/ViewModel/QuizManager.swift; sourceTree = SOURCE_ROOT; };
 		6A7E19BB2CBADFC5002F1A47 /* PsychiatristApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PsychiatristApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7E19BE2CBADFC5002F1A47 /* PsychiatristAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PsychiatristAppApp.swift; sourceTree = "<group>"; };
 		6A7E19C02CBADFC5002F1A47 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -142,6 +142,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A0004E12CC939AC009B67B2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6A0004DC2CC898DA009B67B2 /* QuizManager.swift */,
+				6A0004DB2CC898DA009B67B2 /* Models.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		6A7E19B22CBADFC5002F1A47 = {
 			isa = PBXGroup;
 			children = (
@@ -280,9 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				6A7E19E42CBAE0FF002F1A47 /* FeedView.swift */,
-				6A0004DB2CC898DA009B67B2 /* Models.swift */,
 				6A0004DA2CC898DA009B67B2 /* QuestionView.swift */,
-				6A0004DC2CC898DA009B67B2 /* QuizManager.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -290,6 +297,7 @@
 		6A7E19E62CBAE0FF002F1A47 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				6A0004E12CC939AC009B67B2 /* ViewModel */,
 				6A7E19E52CBAE0FF002F1A47 /* View */,
 			);
 			path = Feed;

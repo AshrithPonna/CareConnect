@@ -17,13 +17,13 @@ class QuizManager: ObservableObject {
         Question(textPrompt: "How are you feeling today? Please provide a detailed response.", type: .typed),
         Question(textPrompt: "How were you feeling this past week? Please provide a detailed response.", type: .typed),
         Question(textPrompt: "On a confidential basis, would you like one of our psychiatrists to know anything?", type: .typed),
-        Question(textPrompt: "How has your environment at home been over the past week?", type: .yesNo),
-        Question(textPrompt: "How has your environment at work been over the past week?", type: .yesNo),
-        Question(textPrompt: "Have you felt sad, depressed, or demotivated over the past week?", type: .yesNo),
-        Question(textPrompt: "Have you been positive, optimistic or enthralled over the past week?", type: .yesNo),
-        Question(textPrompt: "Have you had negative thoughts (such as, but not limited to: death, or violence) this past week or today?", type: .yesNo),
-        Question(textPrompt: "Have you had to face something negative in your life this past week or even today?", type: .yesNo),
-        Question(textPrompt: "Have you felt a sense of hopelessness over the past week or today?", type: .yesNo)
+        Question(textPrompt: "How has your environment at home been over the past week?", type: .typed),
+        Question(textPrompt: "How has your environment at work been over the past week?", type: .typed),
+        Question(textPrompt: "Have you felt sad, depressed, or demotivated over the past week?", type: .typed),
+        Question(textPrompt: "Have you been positive, optimistic or enthralled over the past week?", type: .typed),
+        Question(textPrompt: "Have you had negative thoughts (such as, but not limited to: death, or violence) this past week or today?", type: .typed),
+        Question(textPrompt: "Have you had to face something negative in your life this past week or even today?", type: .typed),
+        Question(textPrompt: "Have you felt a sense of hopelessness over the past week or today?", type: .typed)
     ]
     
     //Initializing an array to store user input in long-term procedural basis'.

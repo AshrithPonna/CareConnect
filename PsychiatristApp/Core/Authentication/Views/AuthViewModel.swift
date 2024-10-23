@@ -48,8 +48,10 @@ class AuthViewModel: ObservableObject {
                     print("DEBUG: Responses uploaded successfully.")
                 }
             }
+        
+        self.fetchUser()
 
-        self.responsesArray = []  // Clear responses after upload
+        // Clear responses after upload
     }
     
     func login(withEmail email: String, password: String){
@@ -121,7 +123,8 @@ class AuthViewModel: ObservableObject {
                 "age": age,
                 "level": level,
                 "gender": gender,
-                "role": "Patient"
+                "role": "Patient",
+                "responses": [""]
             ]) { error in
                 self.fetchUser()
             }
@@ -139,7 +142,8 @@ class AuthViewModel: ObservableObject {
                 "medicalLicenseNumber": medicalLicenseNumber,
                 "gender": "0",
                 "age": 0,
-                "role": "Psychiatrist"
+                "role": "Psychiatrist",
+                "responses": [""]
             ]) { error in
                 self.fetchUser()
             }

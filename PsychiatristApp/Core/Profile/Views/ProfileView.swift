@@ -22,8 +22,8 @@ struct ProfileView: View {
             actionButtons
             
             infoDetails
-            
-            //TODO: add more player info like age and level
+
+            responsesList
             
             Spacer()
         }
@@ -88,6 +88,8 @@ extension ProfileView{
         
     }
     
+    
+    
     var infoDetails: some View{
         VStack(alignment: .leading, spacing: 4){
             HStack {
@@ -123,19 +125,57 @@ extension ProfileView{
 
                     }
                     
+
+                    
                     Spacer()
                 }
                 .padding(.top, 30)
+                
+                HStack{
+                    Text("Quesiton")
+                        .fontWeight(.bold)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text("Answer")
+                        .fontWeight(.bold)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+                .padding(.top, 40)
+                .padding(.bottom, -20)
             }
             
         }
         .padding(.horizontal)
     }
+    
+    var responsesList: some View {
+        VStack {
+            ForEach(0..<viewModel.user.responses.count/2 + 1, id: \.self) { index in
+                HStack {
+                    if index * 2 < viewModel.user.responses.count {
+                        Text(viewModel.user.responses[index * 2])
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding()
+                    }
+
+                    if index * 2 + 1 < viewModel.user.responses.count {
+                        Text(viewModel.user.responses[index * 2 + 1])
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding()
+                    }
+                }
+            }
+        }
+        .padding()
+    }
+
 }
 
 #Preview {
     NavigationView{
-        ProfileView(user: User(id: NSUUID().uuidString, email: "anshkool@icloud.com", fullname: "Ansh Gupta", profileImageUrl: "", username: "anshtheplayer", role: "Patient", age: 16, gender: "Male"))
+        ProfileView(user: User(id: NSUUID().uuidString, email: "anshkool@icloud.com", fullname: "Ansh Gupta", profileImageUrl: "", username: "anshtheplayer", role: "Patient", age: 16, gender: "Male", responses: ["How was your day?", "It was good", "What are you feeling today?", "Nothing much, im feeling pretty good"]))
     }
     .environmentObject(AuthViewModel())
 }

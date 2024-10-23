@@ -19,6 +19,7 @@ struct User: Identifiable, Decodable{
     let role: String
     let age: Int
     let gender: String
+    let responses: [String]
     
     var isCurrentUser: Bool {return Auth.auth().currentUser?.uid == id}
 }
