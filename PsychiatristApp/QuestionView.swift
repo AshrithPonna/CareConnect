@@ -14,8 +14,9 @@ import SwiftUI
 struct QuestionView: View {
     var question: Question
     @ObservedObject var quizManager: QuizManager
+    @EnvironmentObject var viewModel : AuthViewModel
+    @Environment(\.presentationMode) var presentationMode
     @State private var answer: String = ""
-    var userId: String
     
     var body: some View {
         VStack {
@@ -43,11 +44,38 @@ struct QuestionView: View {
             
             // Submission/Confirmation button for users to save their responses.
             
-            Button("Continue") {
-                quizManager.submitResponse(for: question, answer: answer, userId: userId)
+            Button{
+                viewModel.appendResponses(array: [question.textPrompt, answer])
+                
+                presentationMode.wrappedValue.dismiss()
+            }label: {
+                Text("Continue")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 340, height: 50)
+                    .background(Color(.systemBlue))
+                    .clipShape(Capsule())
+                    .padding()
+                
             }
-            .padding()
+            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y:0)
+
         }
         .navigationTitle("Answer Prompt")
     }
+}
+
+#Preview {
+
+    NavigationView {
+        List {
+            ForEach(QuizManager().questions, id: \.textPrompt) { question in
+                NavigationLink(destination: QuestionView(question: question, quizManager: QuizManager())) {
+                    Text(question.textPrompt)
+                }
+            }
+        }
+        .navigationTitle("Quiz")
+    }
+
 }

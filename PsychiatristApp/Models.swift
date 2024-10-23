@@ -8,7 +8,7 @@
 //Importing libraries necessary for location mangement, and data handling.
 
 import Foundation
-import FirebaseFirestoreSwift
+import FirebaseFirestore
 import CoreLocation
 
 //Data development behind a regular question's structure.
@@ -32,14 +32,13 @@ struct Response: Identifiable, Codable {
     @DocumentID var id: String? // This is an optional ID from Firebase Firestore
     var question: Question
     var answer: String
-    var userId: String
 }
 
 //Firebase linkage, categorizing different attributes of an account for future verification such as location, admin qualifications, etc.
 
-struct User: Identifiable, Codable {
-    @DocumentID var id: String? 
-    var email: String
-    var isAdmin: Bool
-    var location: GeoPoint? 
-}
+//struct User: Identifiable, Codable {
+//    @DocumentID var id: String? 
+//    var email: String
+//    var isAdmin: Bool
+//    var location: GeoPoint? 
+//}

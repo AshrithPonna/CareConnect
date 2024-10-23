@@ -14,12 +14,12 @@ import Firebase
 
 class QuizManager: ObservableObject {
     @Published var questions: [Question] = [
-        Question(textPrompt: "[QPhase1]: How are you feeling today? Please provide a detailed response.", type: .typed),
+        Question(textPrompt: "How are you feeling today? Please provide a detailed response.", type: .typed),
         Question(textPrompt: "How were you feeling this past week? Please provide a detailed response.", type: .typed),
         Question(textPrompt: "On a confidential basis, would you like one of our psychiatrists to know anything?", type: .typed),
         Question(textPrompt: "How has your environment at home been over the past week?", type: .yesNo),
         Question(textPrompt: "How has your environment at work been over the past week?", type: .yesNo),
-        Question(textPrompt: "[QPhase2]: Have you felt sad, depressed, or demotivated over the past week?", type: .yesNo),
+        Question(textPrompt: "Have you felt sad, depressed, or demotivated over the past week?", type: .yesNo),
         Question(textPrompt: "Have you been positive, optimistic or enthralled over the past week?", type: .yesNo),
         Question(textPrompt: "Have you had negative thoughts (such as, but not limited to: death, or violence) this past week or today?", type: .yesNo),
         Question(textPrompt: "Have you had to face something negative in your life this past week or even today?", type: .yesNo),
@@ -53,8 +53,8 @@ class QuizManager: ObservableObject {
     
     //Via the method of appending, user responses will be added on to the storing array for later use.
     
-    func submitResponse(for question: Question, answer: String, userId: String) {
-        let response = Response(question: question, answer: answer, userId: userId)
+    func submitResponse(for question: Question, answer: String) {
+        let response = Response(question: question, answer: answer)
         responses.append(response)
         saveResponseToFirebase(response: response)
     }
