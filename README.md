@@ -1,6 +1,6 @@
 # Care Connect
 
-Welcome to CareConnect. The goal of the app is to connect Psychiatrists and Patients to allow for Psychiatrists to check up on patients while they are at home. Additionally, the app proactively checks up on the patient with the data it collects to detect abnormal behaviors in the patients to notify the psychiatrists and schedule an appointment. The main overarching goal of this product is to effectively allow individuals with mental health needs to have an effective sourc of access to medical professionals, allowing them to feel at ease on a continuous basis. Lastly, this app was submitted for the Congressional App Challenge 2024.
+Welcome to CareConnect. The goal of the app is to connect Psychiatrists and Patients to allow for Psychiatrists to check up on patients while they are at home. Additionally, the app proactively checks up on the patient with the data it collects to detect abnormal behaviors in the patients to notify the psychiatrists and schedule an appointment. The main overarching goal of this product is to effectively allow individuals with mental health needs to have an effective source of access to medical professionals, allowing them to feel at ease on a continuous basis. Lastly, this app was submitted for the Congressional App Challenge 2024.
 
 ## Coding Overview
 
