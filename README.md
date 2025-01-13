@@ -4,7 +4,7 @@ Welcome to CareConnect. The goal of the app is to connect Psychiatrists and Pati
 
 ## Coding Overview
 
-We utilized **Swift** to code on **XCode** to develop the **iOS App**. Additionally, we connected our system with the **Google Firebase Database** to keep track of authentication(register/login), profile pictures, and user data. Lastly, we utilized the **OpenAI API** to provide messaging features for patients looking to talk when there is no available Psychiatrist to do so. We also implemented the Google Location API to provide location services and direct users to new psychiatrists that are closest to them. On a generalized basis, the crediting aspect of our softward on the basis of AI goes to OpenAI due to their intensive resourceful API integration. 
+We utilized **Swift** to code on **XCode** to develop the **iOS App**. Additionally, we connected our system with the **Google Firebase Database** to keep track of authentication (register/login), profile pictures, and user data. Lastly, we utilized the **OpenAI API** to provide messaging features for patients looking to talk when there is no available Psychiatrist to do so. We also implemented the Google Location API to provide location services and direct users to new psychiatrists that are closest to them. On a generalized basis, the crediting aspect of our softward on the basis of AI goes to OpenAI due to their intensive resourceful API integration. 
 
 ## Developers
 
